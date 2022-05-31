@@ -10,15 +10,6 @@ const GameLetters = ({ lettersArr }) => {
           );
         })}
       </ul>
-      <ul className="available-letters">
-        {lettersArr.map((letter) => {
-          return (
-            <li className="available-letter" key={letter.number}>
-              <button>{letter.letter}</button>
-            </li>
-          );
-        })}
-      </ul>
     </>
   );
 };

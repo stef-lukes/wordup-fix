@@ -10,15 +10,15 @@ import { useState } from "react";
 
 function App() {
   const [lettersArr, setLetters] = useState([
-    { number: 1, letter: "" },
-    { number: 2, letter: "" },
-    { number: 3, letter: "" },
-    { number: 4, letter: "" },
-    { number: 5, letter: "" },
-    { number: 6, letter: "" },
-    { number: 7, letter: "" },
-    { number: 8, letter: "" },
-    { number: 9, letter: "" },
+    { id: 1, letter: "" },
+    { id: 2, letter: "" },
+    { id: 3, letter: "" },
+    { id: 4, letter: "" },
+    { id: 5, letter: "" },
+    { id: 6, letter: "" },
+    { id: 7, letter: "" },
+    { id: 8, letter: "" },
+    { id: 9, letter: "" },
   ]);
 
   return (
