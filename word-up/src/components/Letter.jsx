@@ -10,7 +10,6 @@ const Letter = ({ letterObj, setAnswer }) => {
     setAnswer((currAnswer) => {
       if (isToggled === false) {
         currAnswer += letter;
-        console.log("inside first if");
       } else if (isToggled === true && currAnswer.includes(letter)) {
         return currAnswer.replace(letter, "");
       }
@@ -20,10 +19,12 @@ const Letter = ({ letterObj, setAnswer }) => {
 
   return (
     <>
-      <li className="available-letter" key={letterId}>
+      <li className="letter-item" key={letterId}>
         <label className="toggle-letter">
           <input type="checkbox" checked={isToggled} onChange={onToggle} />
-          <span>{letter}</span>
+          <span>
+            <h2>{letter}</h2>
+          </span>
         </label>
       </li>
     </>

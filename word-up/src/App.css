@@ -29,20 +29,51 @@ header h2 {
   padding: 0;
 }
 .letter-item {
-  background-color: #ffffe3;
-  padding: 5px 10px;
   margin: 0 5px;
   height: 60px;
-  width: 50px;
+  width: 60px;
   border-radius: 10px;
-  box-shadow: 5px 5px #d3d2be;
+
+  text-align: center;
 }
 .letter-item h2 {
-  margin: 8px;
   font-size: 40px;
   color: #1d102b;
   text-shadow: 3px 3px rgba(0, 0, 0, 0.2);
+  margin: 0;
+  padding: 6px;
 }
+.toggle-letter {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.toggle-letter span {
+  display: inline-block;
+  background-color: #ffffe3;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  font-weight: 900;
+  box-shadow: 5px 5px #d3d2be;
+  border-radius: 10px;
+}
+
+.toggle-letter input {
+  display: none;
+}
+.toggle-letter input:checked ~ span {
+  background-color: #2cfd5d;
+  box-shadow: 5px 5px #26de51;
+}
+
+.toggle-letter input:checked ~ span h2 {
+  color: white;
+}
+
 .input-box {
   margin: 70px auto;
   display: flex;
@@ -88,43 +119,17 @@ header h2 {
   width: 40px;
   height: 40px;
 }
-.available-letters {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  padding: 0;
-}
-.available-letter {
-  width: 50px;
-  height: 40px;
-
-  margin: 0 5px;
-  border-radius: 10px;
-}
-.toggle-letter {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-
-.toggle-letter input {
-  display: none;
-}
-.toggle-letter input:checked + span {
-  background-color: #0e0914;
-  color: gray;
-}
-.toggle-letter span {
-  display: inline-block;
-  padding-top: 10px;
-  width: 100%;
-  height: 100%;
-  background-color: #331f4c;
-  color: white;
+.score {
   font-size: 30px;
-  font-weight: 900;
-  border-radius: 10px;
-  box-shadow: 4px 4px #0e0914;
+  color: white;
+}
+.answers {
+  text-align: left;
+  list-style: none;
+  width: 220px;
+  margin: auto;
+}
+.answer-item {
+  color: white;
+  font-size: 14px;
 }

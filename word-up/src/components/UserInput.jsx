@@ -1,39 +1,38 @@
 import { useState } from "react";
 import Letter from "./Letter";
-// import ScoreCard from "./ScoreCard";
+import VowelPicker from "./VowelPicker";
+import ConsonantPicker from "./ConsonantPicker";
+import Form from "./Form";
 
-const UserInput = ({ lettersArr }) => {
+const UserInput = () => {
+  const [lettersArr, setLetters] = useState([
+    { id: 1, letter: "" },
+    { id: 2, letter: "" },
+    { id: 3, letter: "" },
+    { id: 4, letter: "" },
+    { id: 5, letter: "" },
+    { id: 6, letter: "" },
+    { id: 7, letter: "" },
+    { id: 8, letter: "" },
+    { id: 9, letter: "" },
+  ]);
   const [answer, setAnswer] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
 
   return (
     <>
-      <form className="input-box" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="user-input-box"
-          value={answer}
-          onChange={(event) => {
-            setAnswer(event.target.value);
-          }}
-        />
-        <button type="submit" className="submit">
-          >
-        </button>
-      </form>
-      <ul className="available-letters">
+      <ul className="picked-letters">
         {lettersArr.map((letterObj) => (
           <Letter
+            className="letter-item"
             key={letterObj.id}
             letterObj={letterObj}
             setAnswer={setAnswer}
           />
         ))}
       </ul>
-      {/* <ScoreCard answer={answer} /> */}
+      <VowelPicker setLetters={setLetters} />
+      <ConsonantPicker setLetters={setLetters} />
+      <Form answer={answer} setAnswer={setAnswer} />
     </>
   );
 };
