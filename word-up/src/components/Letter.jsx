@@ -7,16 +7,16 @@ const Letter = ({ letterObj, setAnswer }) => {
 
   const onToggle = () => {
     setIsToggled(!isToggled);
+    setAnswer((currAnswer) => {
+      if (isToggled === false) {
+        currAnswer += letter;
+        console.log("inside first if");
+      } else if (isToggled === true && currAnswer.includes(letter)) {
+        return currAnswer.replace(letter, "");
+      }
+      return currAnswer;
+    });
   };
-
-  setAnswer((currAnswer) => {
-    if (isToggled === true) {
-      currAnswer += letter;
-    } else if (!isToggled && currAnswer.includes(letter)) {
-      currAnswer.replace(letter, "");
-    }
-    return currAnswer;
-  });
 
   return (
     <>

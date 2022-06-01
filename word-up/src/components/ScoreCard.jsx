@@ -1,23 +1,45 @@
-const G = require("generatorics");
-const checkWord = require("check-if-word"),
-  words = checkWord("en");
+const { useState } = require("react");
 
-const ScoreCard = ({ lettersArr }) => {
-    const gameLettersArr = [];
-    lettersArr.map((letterObj) => {
-      return gameLettersArr.push(letterObj.letter);
-    });
+const ScoreCard = ({ answer }) => {
+  const [answersList, setAnswersList] = useState([]);
 
-    const joinedLetters = gameLettersArr.join("");
+  setAnswersList((currList) => {
+    return [...currList, answer];
+  });
 
-    const strArr = [];
-    for (var perm of G.permutationCombination(joinedLetters)) {
-      strArr.push(perm.join(""));
-    }
-
-    const validWords = words.getValidWords(strArr);
-    
-    return (
-        
-    )
+  return (
+    <>
+      <h3>Score:</h3>
+      <ul className="answers">
+        {answersList.map((answerItem) => {
+          return (
+            <li className="answer-item" key={answerItem}>
+              <p>{answerItem}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
 };
+
+export default ScoreCard;
+
+// const G = require("generatorics");
+
+// const checkWord = require("check-if-word"),
+//   words = checkWord("en");
+
+//   const gameLettersArr = [];
+//   lettersArr.map((letterObj) => {
+//     return gameLettersArr.push(letterObj.letter);
+//   });
+
+//   const joinedLetters = gameLettersArr.join("");
+
+//   const strArr = [];
+//   for (var perm of G.permutationCombination(joinedLetters)) {
+//     strArr.push(perm.join(""));
+//   }
+
+// const validWords = words.getValidWords(strArr);
