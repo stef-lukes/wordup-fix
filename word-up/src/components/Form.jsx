@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ScoreCard from "./ScoreCard";
 
-const Form = ({ answer, setAnswer }) => {
+const Form = ({ setLetters, answer, setAnswer }) => {
   const [answersList, setAnswersList] = useState([]);
 
   const handleSubmit = (event) => {
@@ -10,18 +10,16 @@ const Form = ({ answer, setAnswer }) => {
       return [...currList, answer];
     });
     setAnswer("");
+    setLetters((currLetters) => {
+      return currLetters.map((letter) => {
+        return { ...letter, isToggled: false };
+      });
+    });
   };
   return (
     <>
       <form className="input-box" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="user-input-box"
-          value={answer}
-          //   onChange={(event) => {
-          //     setAnswer(event.target.value);
-          //   }}
-        />
+        <input type="text" name="user-input-box" value={answer} readOnly />
         <button type="submit" className="submit">
           >
         </button>

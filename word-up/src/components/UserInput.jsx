@@ -6,15 +6,15 @@ import Form from "./Form";
 
 const UserInput = () => {
   const [lettersArr, setLetters] = useState([
-    { id: 1, letter: "" },
-    { id: 2, letter: "" },
-    { id: 3, letter: "" },
-    { id: 4, letter: "" },
-    { id: 5, letter: "" },
-    { id: 6, letter: "" },
-    { id: 7, letter: "" },
-    { id: 8, letter: "" },
-    { id: 9, letter: "" },
+    { id: 1, letter: "", isToggled: false },
+    { id: 2, letter: "", isToggled: false },
+    { id: 3, letter: "", isToggled: false },
+    { id: 4, letter: "", isToggled: false },
+    { id: 5, letter: "", isToggled: false },
+    { id: 6, letter: "", isToggled: false },
+    { id: 7, letter: "", isToggled: false },
+    { id: 8, letter: "", isToggled: false },
+    { id: 9, letter: "", isToggled: false },
   ]);
   const [answer, setAnswer] = useState("");
 
@@ -32,7 +32,7 @@ const UserInput = () => {
       </ul>
       <VowelPicker setLetters={setLetters} />
       <ConsonantPicker setLetters={setLetters} />
-      <Form answer={answer} setAnswer={setAnswer} />
+      <Form setLetters={setLetters} answer={answer} setAnswer={setAnswer} />
     </>
   );
 };
